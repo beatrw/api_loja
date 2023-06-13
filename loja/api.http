@@ -1,0 +1,41 @@
+###
+
+GET http://localhost:8080/
+
+###
+
+GET http://localhost:8080/api/produtos
+
+###
+
+GET http://localhost:8080/api/produtos/1
+
+###
+
+POST http://localhost:8080/api/produtos/
+Content-Type: application/json
+
+{
+    "nome": "Celular",
+    "preco": 90.8,
+    "emPromocao": true,
+    "precoPromocao": "100"
+}
+
+###
+
+PUT http://localhost:8080/produtos/1
+Content-Type: application/json
+
+{
+    "nome": "Celular Nokia 110 Dual Chip 32MB 2G Desbloqueado",
+    "preco": 90.8,
+    "tags": ["ai"],
+    "emPromocao": true,
+    "precoPromocao": "100"
+}
+
+###
+
+DELETE http://localhost:8080/api/produtos/6
+

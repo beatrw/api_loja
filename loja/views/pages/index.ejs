@@ -1,0 +1,44 @@
+<%- contentFor('body') %>
+
+  <% produtos.forEach((produto)=> { %>
+    <div class="col">
+      <div class="card shadow-sm">
+        <% if (produto.foto) { %>
+          <img src="<%= produto.foto %>" alt="<%= produto.nome %>" class="card-img-top produto-img">
+          <% } else { %>
+            <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+              preserveAspectRatio="xMidYMid slice" focusable="false" class="bd-placeholder-img card-img-top">
+              <rect width="100%" height="100%" fill="#55595c"></rect>
+              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Foto indisponível</text>
+            </svg>
+            <% } %>
+
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= produto.nome %>
+                </h5>
+                <p class="card-text">
+                  <%= produto.descricao.substr(0, 100) %>
+                </p>
+                <% if (produto.precoPromocao) { %>
+                  <p class="card-text" style="color: red; text-decoration: line-through;">De R$<%= produto.preco %>
+                  </p>
+                  <p class="card-text" style="color: blue;">Por R$<%= produto.precoPromocao %>
+                  </p>
+                  <% } else { %>
+                    <p class="card-text" style="color: blue;">R$<%= produto.preco %>
+                    </p>
+                    <% } %>
+                      <p class="card-text">Postado em: <%= produto.createdAt.toLocaleDateString() %>
+                      </p>
+              </div>
+      </div>
+    </div>
+    <% }) %>
+
+      <style>
+        .produto-img {
+          width: 300px;
+          height: auto;
+        }
+      </style>
